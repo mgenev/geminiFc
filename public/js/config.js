@@ -5,6 +5,10 @@ window.app.config(['$routeProvider', function($routeProvider) {
 	when('/articles/create', { templateUrl: 'views/articles/create.html' }).
 	when('/articles/:articleId/edit', { templateUrl: 'views/articles/edit.html' }).
 	when('/articles/:articleId', { templateUrl: 'views/articles/view.html' }).
+	when('/stacks', { templateUrl: 'views/stacks/list.html' }).
+	when('/stacks/create', { templateUrl: 'views/stacks/create.html' }).
+	when('/stacks/:stackId/edit', { templateUrl: 'views/stacks/edit.html' }).
+	when('/stacks/:stackId', { templateUrl: 'views/stacks/view.html' }).
 	when('/', { templateUrl: 'views/index.html' }).
 	otherwise({redirectTo: '/'});
 }]);

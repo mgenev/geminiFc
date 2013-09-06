@@ -23,6 +23,15 @@ module.exports = function (app, passport, auth) {
 
   app.param('userId', users.user)
 
+  var stacks = require('../app/controllers/stacks')  
+  app.get('/stacks', stacks.all)
+  app.post('/stacks', auth.requiresLogin, stacks.create)
+  app.get('/stacks/:stackId', stacks.show)
+  app.put('/stacks/:stackId', auth.requiresLogin, auth.stack.hasAuthorization, stacks.update)
+  app.del('/stacks/:stackId', auth.requiresLogin, auth.stack.hasAuthorization, stacks.destroy)
+
+  app.param('stackId', stacks.stack)
+
   var articles = require('../app/controllers/articles')  
   app.get('/articles', articles.all)
   app.post('/articles', auth.requiresLogin, articles.create)
@@ -31,6 +40,7 @@ module.exports = function (app, passport, auth) {
   app.del('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.destroy)
 
   app.param('articleId', articles.article)
+  
 
   // home route
   var index = require('../app/controllers/index')

@@ -37,3 +37,16 @@ exports.article = {
       next()
     }
 }
+
+/*
+ *  Stack authorizations routing middleware
+ */
+
+exports.stack = {
+    hasAuthorization : function (req, res, next) {
+      if (req.stack.user.id != req.stack.id) {
+        return res.redirect('/stack/'+req.stack.id)
+      }
+      next()
+    }
+}

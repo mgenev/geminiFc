@@ -1,0 +1,27 @@
+<section data-ng-controller="StacksController">
+	<form class="form-horizontal" data-ng-submit="create()">
+		<div class="control-group">
+			<label class="control-label" for="title">Title</label>
+			<div class="controls">
+				<input type="text" data-ng-model="title" id="title" placeholder="Title">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="language1">Language 1</label>
+			<div class="controls">
+				<textarea data-ng-model="language1" id="language1" cols="30" rows="5" placeholder="Language 1"></textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="language2">Language 2</label>
+			<div class="controls">
+				<textarea data-ng-model="language2" id="language2" cols="30" rows="5" placeholder="Language 2"></textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" class="btn">
+			</div>
+		</div>
+	</form>
+</section>

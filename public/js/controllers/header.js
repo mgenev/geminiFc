@@ -8,6 +8,14 @@ function HeaderController($scope, $location, Global) {
 		{
 			"title": "Create New Article",
 			"link": "articles/create"
+		},
+		{
+			"title": "Stacks",
+			"link": "stacks"
+		},
+		{
+			"title": "Create New Stack",
+			"link": "stacks/create"
 		}
 	];
 

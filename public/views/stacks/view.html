@@ -1,0 +1,7 @@
+<section data-ng-controller="StacksController" data-ng-init="findOne()">
+	<span>{{stack.created | date:'medium'}}</span> /
+	<span>{{stack.user.name}}</span>
+	<h2>{{stack.title}} <a data-ng-show="global.user._id == stack.user._id" href="/#!/stacks/{{stack._id}}/edit">edit</a></h2>
+	<div ng-click="flip();" class="flashcard side1">{{stack.language1}}</div>
+	<div ng-click="flip();" class="flashcard side2 hidden">{{stack.language2}}</div>
+</section>

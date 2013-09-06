@@ -1,0 +1,33 @@
+<section data-ng-controller="StacksController" data-ng-init="findOne()">
+	<form class="form-horizontal" data-ng-submit="update()">
+		<div class="control-group">
+			<label class="control-label" for="title">Title</label>
+
+			<div class="controls">
+				<input type="text" data-ng-model="stack.title" id="title" placeholder="Title">
+				</input>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="language1">Language 1</label>
+
+			<div class="controls">
+				<textarea data-ng-model="stack.language1" id="language1" cols="30" rows="10" placeholder="Language 1">
+				</textarea>
+			</div>
+		</div>
+				<div class="control-group">
+			<label class="control-label" for="language2">Language 2</label>
+
+			<div class="controls">
+				<textarea data-ng-model="stack.language2" id="language2" cols="30" rows="10" placeholder="Language 2">
+				</textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" class="btn">
+			</div>
+		</div>
+	</form>
+</section>
