@@ -1,7 +1,23 @@
-<section data-ng-controller="StacksController" data-ng-init="findOne()">
+<section data-ng-controller="StacksController" data-ng-init="findOne(); findCards();">
 	<span>{{stack.created | date:'medium'}}</span> /
 	<span>{{stack.user.name}}</span>
 	<h2>{{stack.title}} <a data-ng-show="global.user._id == stack.user._id" href="/#!/stacks/{{stack._id}}/edit">edit</a></h2>
-	<div ng-click="flip();" class="flashcard side1">{{stack.language1}}</div>
-	<div ng-click="flip();" class="flashcard side2 hidden">{{stack.language2}}</div>
+	<div>Stack: {{stack.language1}} - {{stack.language2}}</div>
+	
+	// TODO here bring index of cards only by current user 
+
+	// this page always needs a link to create  more  cards 
+	<h1><a href="/#!/articles/create/{{stack._id}}">Create a flashcard</a></h1>
+
+	<ul class="articles unstyled">
+		<li data-ng-repeat="article in articles">
+			<span>{{article.created | date:'medium'}}</span> /
+			<span>{{article.user.name}}</span>
+			<h2><a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a></h2>
+			<div>{{article.content}}</div>
+		</li>
+	</ul>
+	
+
+
 </section>

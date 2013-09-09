@@ -1,8 +1,8 @@
-function ArticlesController($scope, $routeParams, $location, Global, Articles) {
+function ArticlesController($scope, $routeParams, $location, Global, Articles, Stacks) {
 	$scope.global = Global;
 
 	$scope.create = function () {
-		var article = new Articles({ title: this.title, side1: this.side1, side2:  this.side2 });
+		var article = new Articles({ title: this.title, side1: this.side1, side2:  this.side2, stack: $scope.stack._id });
 		article.$save(function (response) {
 			$location.path("articles/" + response._id);
 		});
@@ -10,6 +10,7 @@ function ArticlesController($scope, $routeParams, $location, Global, Articles) {
 		this.title = "";
 		this.side1 = "";
 		this.side2 = "";
+		this.stack = "";
 	};
 
 	$scope.remove = function (article) {
@@ -43,6 +44,13 @@ function ArticlesController($scope, $routeParams, $location, Global, Articles) {
 	$scope.findOne = function () {
 		Articles.get({ articleId: $routeParams.articleId }, function (article) {
 			$scope.article = article;
+		});
+	};
+
+	$scope.findOneStack = function () {
+		console.log("findonestack fired");
+		Stacks.get({ stackId: $routeParams.stackId }, function (stack) {
+			$scope.stack = stack;
 		});
 	};
  

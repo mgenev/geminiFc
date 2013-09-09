@@ -7,7 +7,7 @@ function HeaderController($scope, $location, Global) {
 		},
 		{
 			"title": "Create New Article",
-			"link": "articles/create"
+			"link": "articles/create/"
 		},
 		{
 			"title": "Stacks",
@@ -15,7 +15,7 @@ function HeaderController($scope, $location, Global) {
 		},
 		{
 			"title": "Create New Stack",
-			"link": "stacks/create"
+			"link": "stacks/create/"
 		}
 	];
 

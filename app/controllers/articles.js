@@ -78,3 +78,13 @@ exports.all = function(req, res){
 		}
 	});
 }
+
+exports.allByStack = function(req, res){
+  Article.find({ 'stack': req.stack._id }).sort('-created').populate('user').exec(function(err, articles) {
+    if (err) {
+      res.render('error', {status: 500});
+    } else {      
+        res.jsonp(articles);
+    }
+  });
+}

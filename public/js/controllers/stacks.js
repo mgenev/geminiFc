@@ -1,4 +1,4 @@
-function StacksController($scope, $routeParams, $location, Global, Stacks) {
+function StacksController($scope, $routeParams, $location, Global, Stacks, ArticlesByStack) {
 	$scope.global = Global;
 
 	$scope.create = function () {
@@ -27,6 +27,7 @@ function StacksController($scope, $routeParams, $location, Global, Stacks) {
 		if (!stack.updated) {
 			stack.updated = [];
 		}
+		console.log("push from pupdate??");
 		stack.updated.push(new Date().getTime());
 
 		stack.$update(function () {
@@ -60,4 +61,12 @@ function StacksController($scope, $routeParams, $location, Global, Stacks) {
 			side2.removeClass('hidden');
 		}
 	};
+
+	$scope.findCards = function (query) {
+		console.log("findCards fired");
+		ArticlesByStack.query({ stackId: $routeParams.stackId }, function (articles) {
+			$scope.articles = articles;
+		});
+	};
+
 }

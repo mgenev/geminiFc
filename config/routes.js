@@ -39,6 +39,8 @@ module.exports = function (app, passport, auth) {
   app.put('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.update)
   app.del('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.destroy)
 
+  app.get('/articlesbystack/:stackId', articles.allByStack)
+  
   app.param('articleId', articles.article)
   
 
