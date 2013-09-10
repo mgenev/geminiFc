@@ -44,22 +44,32 @@ function ArticlesController($scope, $routeParams, $location, Global, Articles, S
 	$scope.findOne = function () {
 		Articles.get({ articleId: $routeParams.articleId }, function (article) {
 			$scope.article = article;
+			$scope.findStacks();
 		});
 	};
 
 	$scope.findStacks = function (query) {
-		// has a stack id been passed? if yes get that stack
-		if ($routeParams.stackId.trim() !== "") {
-			Stacks.get({ stackId: $routeParams.stackId }, function (stack) {
-				$scope.stack = stack;
-			});	
-		} else {
-			// if no TODO populate a dropdown with the possible stacks
-			StacksByUser.query({ userId: $scope.global.user._id }, function (stacks) {
-			$scope.stacks = stacks;
-		});
-		}
 		
+		// do you have an article as coming from edit view? 
+		if (typeof $scope.article !== 'undefined' && typeof $scope.article.stack !== 'undefined') {
+			// yes, get the stack it belongs to
+			Stacks.get({ stackId: $scope.article.stack }, function (stack) {
+				$scope.stack = stack;
+			});
+		} else {
+			// no check for params, has a stack id been passed? if yes get that stack
+			if ($routeParams.stackId.trim() !== "") {
+				// yes, get that stack 
+				Stacks.get({ stackId: $routeParams.stackId }, function (stack) {
+				$scope.stack = stack;
+				});
+			} else {
+				// no, get possible stacks
+				StacksByUser.query({ userId: $scope.global.user._id }, function (stacks) {
+				$scope.stacks = stacks;
+			});
+			}
+		}		
 	};
  
 	$scope.flip = function () {
