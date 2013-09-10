@@ -31,7 +31,6 @@ function StacksController($scope, $routeParams, $location, Global, Stacks, Artic
 		stack.updated.push(new Date().getTime());
 
 		stack.$update(function () {
-			console.log()
 			$location.path('stacks/' + stack._id);
 		});
 	};

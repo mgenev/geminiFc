@@ -27,7 +27,7 @@ module.exports = function (app, passport, auth) {
   app.get('/stacks', stacks.all)
   app.post('/stacks', auth.requiresLogin, stacks.create)
   app.get('/stacks/:stackId', stacks.show)
-  app.put('/stacks/:stackId', auth.requiresLogin, auth.stack.hasAuthorization, stacks.update)
+  app.put('/stacks/:stackId', auth.requiresLogin, stacks.update)
   app.del('/stacks/:stackId', auth.requiresLogin, auth.stack.hasAuthorization, stacks.destroy)
 
   app.get('/stacksbyuser/:userId', stacks.allByUser)

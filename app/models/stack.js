@@ -29,7 +29,6 @@ var StackSchema = new Schema({
 
 StackSchema.statics = {
   load: function (id, cb) {
-    console.log(this);
     this.findOne({ _id : id }).populate('user').exec(cb);
   }
 };
