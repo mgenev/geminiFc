@@ -30,6 +30,8 @@ module.exports = function (app, passport, auth) {
   app.put('/stacks/:stackId', auth.requiresLogin, auth.stack.hasAuthorization, stacks.update)
   app.del('/stacks/:stackId', auth.requiresLogin, auth.stack.hasAuthorization, stacks.destroy)
 
+  app.get('/stacksbyuser/:userId', stacks.allByUser)
+
   app.param('stackId', stacks.stack)
 
   var articles = require('../app/controllers/articles')  

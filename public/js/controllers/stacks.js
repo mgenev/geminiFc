@@ -1,4 +1,4 @@
-function StacksController($scope, $routeParams, $location, Global, Stacks, ArticlesByStack) {
+function StacksController($scope, $routeParams, $location, Global, Stacks, ArticlesByStack, StacksByUser) {
 	$scope.global = Global;
 
 	$scope.create = function () {
@@ -27,10 +27,11 @@ function StacksController($scope, $routeParams, $location, Global, Stacks, Artic
 		if (!stack.updated) {
 			stack.updated = [];
 		}
-		console.log("push from pupdate??");
+
 		stack.updated.push(new Date().getTime());
 
 		stack.$update(function () {
+			console.log()
 			$location.path('stacks/' + stack._id);
 		});
 	};
@@ -66,6 +67,13 @@ function StacksController($scope, $routeParams, $location, Global, Stacks, Artic
 		console.log("findCards fired");
 		ArticlesByStack.query({ stackId: $routeParams.stackId }, function (articles) {
 			$scope.articles = articles;
+		});
+	};
+
+	$scope.findStacksByUser = function (query) {
+
+		StacksByUser.query({ userId: $scope.global.user._id }, function (stacks) {
+			$scope.stacks = stacks;
 		});
 	};
 

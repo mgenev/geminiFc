@@ -79,3 +79,12 @@ exports.all = function(req, res){
 	});
 }
 
+exports.allByUser = function(req, res){
+  Stack.find({ 'user': req.user._id }).sort('-created').populate('user').exec(function(err, stacks) {
+    if (err) {
+      res.render('error', {status: 500});
+    } else {      
+        res.jsonp(stacks);
+    }
+  });
+}

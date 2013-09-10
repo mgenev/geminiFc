@@ -1,4 +1,4 @@
-function ArticlesController($scope, $routeParams, $location, Global, Articles, Stacks) {
+function ArticlesController($scope, $routeParams, $location, Global, Articles, Stacks, StacksByUser) {
 	$scope.global = Global;
 
 	$scope.create = function () {
@@ -18,7 +18,7 @@ function ArticlesController($scope, $routeParams, $location, Global, Articles, S
 
 		for (var i in $scope.articles) {
 			if ($scope.articles[i] == article) {
-				$scope.articles.splice(i, 1)
+				$scope.articles.splice(i, 1);
 			}
 		}
 	};
@@ -47,15 +47,23 @@ function ArticlesController($scope, $routeParams, $location, Global, Articles, S
 		});
 	};
 
-	$scope.findOneStack = function () {
-		console.log("findonestack fired");
-		Stacks.get({ stackId: $routeParams.stackId }, function (stack) {
-			$scope.stack = stack;
+	$scope.findStacks = function (query) {
+		// has a stack id been passed? if yes get that stack
+		if ($routeParams.stackId.trim() !== "") {
+			Stacks.get({ stackId: $routeParams.stackId }, function (stack) {
+				$scope.stack = stack;
+			});	
+		} else {
+			// if no TODO populate a dropdown with the possible stacks
+			StacksByUser.query({ userId: $scope.global.user._id }, function (stacks) {
+			$scope.stacks = stacks;
 		});
+		}
+		
 	};
  
 	$scope.flip = function () {
-		console.log($scope.article);
+
 		var side1 = $('.side1'),
 			side2 = $('.side2');
 
