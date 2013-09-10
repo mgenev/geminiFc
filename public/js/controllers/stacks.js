@@ -17,7 +17,7 @@ function StacksController($scope, $routeParams, $location, Global, Stacks, Artic
 
 		for (var i in $scope.stacks) {
 			if ($scope.stacks[i] == stack) {
-				$scope.stacks.splice(i, 1)
+				$scope.stacks.splice(i, 1);
 			}
 		}
 	};
@@ -47,7 +47,7 @@ function StacksController($scope, $routeParams, $location, Global, Stacks, Artic
 		});
 	};
  
- 	// TODO this flip to flip whole stacks witha  for each
+	//TODO this flip to flip whole stacks witha  for each
 	$scope.flip = function () {
 		console.log($scope.stack);
 		var side1 = $('.side1'),
@@ -63,7 +63,6 @@ function StacksController($scope, $routeParams, $location, Global, Stacks, Artic
 	};
 
 	$scope.findCards = function (query) {
-		console.log("findCards fired");
 		ArticlesByStack.query({ stackId: $routeParams.stackId }, function (articles) {
 			$scope.articles = articles;
 		});
