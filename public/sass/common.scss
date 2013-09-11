@@ -23,6 +23,24 @@ footer p{
      padding: 5px 0 12px 10px;
 }
 
+.card-wrapper {
+  width:500px;
+}
+
+.thumbs-down {
+  color: red;
+  cursor: pointer;
+}
+
+.thumbs-up {
+  color: green;
+  cursor: pointer;
+}
+
+.controls {
+  margin-top: 15px; 
+}
+
 .flashcard {
   border: 1px solid black;
   width: 500px;

@@ -1,3 +1,7 @@
 <section data-ng-controller="IndexController">
-	<h1>This is the home view UGGHHHHHHHH</h1>
+	<h1 data-ng-show="!global.user">Greetings, noob. Do login.</h1>
+	<h1 data-ng-show="global.user">Welcome, start upgrading your brain now.</h1>
+
+	
 </section>
+

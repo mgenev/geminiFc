@@ -1,10 +1,19 @@
-<section data-ng-controller="ArticlesController" data-ng-init="findOne();">
-	<div>Stack: {{stack.title}}</div>
-	<span>{{article.created | date:'medium'}}</span> /
-	<span>{{article.user.name}}</span>
-	<h2>{{article.title}} <a data-ng-show="global.user._id == article.user._id" href="/#!/articles/{{article._id}}/edit">edit</a></h2>
-	<div ng-click="flip();" class="flashcard side1">{{article.side1}}</div>
-	<div ng-click="flip();" class="flashcard side2 hidden">{{article.side2}}</div>
-</section>
+<section  data-ng-controller="ArticlesController" data-ng-init="findOne();focusCard();">
+	<form class="cardForm" ng-keydown="changeIndex($event);">
+	<div ng-keydown="changeIndex($event);" class="card-wrapper">
+		<div>Stack: {{stack.title}}</div>
+		<span>{{article.created | date:'medium'}}</span> /
+		<span>{{article.user.name}}</span>
+		<h2>{{article.title}} <a data-ng-show="global.user._id == article.user._id" href="/#!/articles/{{article._id}}/edit">edit</a></h2>
+		<input ng-keydown="changeIndex($event);">
+		<div>progress:  <progress percent="learnedGauge" animate="true" class="progress-striped active animate"></progress> </div>
+		<div ng-click="flip();" class="flashcard side1">{{article.side1}}</div>
+		<div ng-click="flip();" class="flashcard side2 hidden">{{article.side2}}</div>
 
-testiong yo again 3
+		<div class="controls">
+			<i ng-click="changeIndex('down');" class="icon-thumbs-down icon-4x thumbs-down"></i>
+			<i ng-click="changeIndex('up');" class="icon-thumbs-up icon-4x thumbs-up pull-right"></i>
+		</div>
+	</div>
+	</form>
+</section>
