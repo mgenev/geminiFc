@@ -1,16 +1,13 @@
 function ArticlesController($scope, $routeParams, $location, Global, Articles, Stacks, StacksByUser) {
+   $('body').keydown(function(e) {
+		$scope.changeIndex(e);
+	});
+
     $scope.global = Global;
-    $('body').attr('ng-keydown', 'changeIndex($event);');
+    
     //todo store real gauge in db
     $scope.learnedGauge  = {};
     $scope.learnedGauge.value = 50;
-
-    $scope.focusCard = function () {
-
-    	console.log("come ooon");
-    	$('input').focus();
-
-    }
 
     $scope.create = function() {
         var article = new Articles({
@@ -100,34 +97,35 @@ function ArticlesController($scope, $routeParams, $location, Global, Articles, S
     	$('.card').toggleClass('flipped');
     };
 
-    $scope.changeIndex = function (direction) {
+    $scope.changeIndex = function (e) {
+    	console.log(e.which);
     	var value = $scope.learnedGauge.value;
     	var type;
 
-        switch (event.which) {
+        switch (e.which) {
             // "up arrow"
             case 38:
-                direction = "up";
+                e = "up";
                 break;
 
             // "down arrow"
             case 40:
-                direction = "down";
+                e = "down";
                 break;
             // "left arrow"
 			case 37:
 				// TODO previousCard();
-				direction = "forward";
+				e = "next";
                 break;
             // "right arrow"
 			case 39:
                 // TODO nextCard();
-                direction = ""
+                e = "prev";
                 break;
         }
 
-    	if (direction == "up") value+= 10;
-    	if (direction == "down") value-= 10;
+    	if (e == "up") value+= 10;
+    	if (e == "down") value-= 10;
 
         if (value < 25) {
             type = 'danger';
@@ -143,6 +141,8 @@ function ArticlesController($scope, $routeParams, $location, Global, Articles, S
             value: value,
             type: type
         };
+
+        $scope.$apply();
     };
 
 
