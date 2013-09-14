@@ -97,17 +97,7 @@ function ArticlesController($scope, $routeParams, $location, Global, Articles, S
     };
 
     $scope.flip = function() {
-
-        var side1 = $('.side1'),
-            side2 = $('.side2');
-
-        if ($(side1).hasClass('hidden')) {
-            side2.addClass('hidden');
-            side1.removeClass('hidden');
-        } else {
-            side1.addClass('hidden');
-            side2.removeClass('hidden');
-        }
+    	$('.card').toggleClass('flipped');
     };
 
     $scope.changeIndex = function (direction) {
