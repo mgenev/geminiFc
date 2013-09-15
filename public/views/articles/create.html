@@ -1,14 +1,17 @@
 <section data-ng-controller="ArticlesController" data-ng-init="findStacks();">
-	<div data-ng-show="stacks && stacks.length">
-		<ul class="stacks unstyled">
-			<li data-ng-repeat="stack in stacks">
-				<span>{{stack.created | date:'medium'}}</span> /
-				<span>{{stack.user.name}}</span>
-				<h2><a data-ng-href="#!/stacks/{{stack._id}}">{{stack.title}}</a></h2>
-				<div>{{stack.content}}</div>
-			</li>
-		</ul>
-	</div>
+		<h2>Adding to stack: {{stack.title}}</h2>
+		 <ul class="nav" data-ng-show="stacks && stacks.length">
+	        <li class="dropdown">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					Choose stack<b class="caret"></b>
+				</a>
+	            <ul class="stacks dropdown-menu">
+				<li data-ng-repeat="stack in stacks">
+				<a data-ng-href="#!/articles/create/{{stack._id}}">{{stack.title}}</a>
+	            </ul>
+	        </li>
+	    </ul>
+
 
 	<form class="form-horizontal" data-ng-submit="create();">
 		<div class="control-group">

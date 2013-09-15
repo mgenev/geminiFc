@@ -122,6 +122,10 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$ro
                 // TODO nextCard();
                 e = "prev";
                 break;
+            case 32:
+                // TODO nextCard();
+                $scope.flip();
+                break;
         }
 
     	if (e == "up") value+= 10;
