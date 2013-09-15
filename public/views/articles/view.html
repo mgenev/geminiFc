@@ -1,12 +1,12 @@
 <section  data-ng-controller="ArticlesController" data-ng-init="findOne();">
 	<div class="card-wrapper">
-		<div><span>Now studying:</span> <h3>{{stack.title}}</h3><div>
+		<div><span>Now studying:</span> <h3 class="stack-title">{{stack.title}}</h3><div>
 		<div class="separator"></div><!-- 
 		<span>{{article.created | date:'medium'}}</span> /
 		<span>{{article.user.name}}</span> --><!-- 
 		<h2>{{article.title}} <a data-ng-show="global.user._id == article.user._id" href="/#!/articles/{{article._id}}/edit">edit</a></h2> -->
 <!-- 		<input ng-keydown="changeIndex($event);"> -->
-		<div>progress:  <progress ng-model="learnedGauge.value" percent="learnedGauge" animate="true" class="progress active animate"></progress> </div>
+		<div><h5>Knowledge progress: </h5>  <progress ng-model="learnedGauge.value" percent="learnedGauge" animate="true" class="progress active animate"></progress> </div>
 		
 		<div class="flip"> 
         <div class="card"> 

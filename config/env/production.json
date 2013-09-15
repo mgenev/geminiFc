@@ -1,7 +1,7 @@
 {
     "db" : "mongodb://mgenev:rodopa777@paulo.mongohq.com:10042/mean-dev",
     "app": {
-        "name": "MEAN - A Modern Stack - Production"
+        "name": "Gemini Flashcards"
     },
     "facebook": {
         "clientID": "APP_ID",
