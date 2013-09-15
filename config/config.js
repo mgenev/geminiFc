@@ -58,10 +58,10 @@ module.exports = {
     }
   },
   production: {
-    db: 'mongodb://localhost/mean',
+    db: 'mongodb://mgenev:rodopa777@paulo.mongohq.com:10042/mean-dev',
     root: rootPath,
     app: {
-      name: 'MEAN - A Modern Stack - Production'
+      name: 'Gemini FC'
     },
     facebook: {
       clientID: "APP_ID",
