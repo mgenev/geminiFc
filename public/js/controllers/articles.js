@@ -1,5 +1,5 @@
-function ArticlesController($scope, $routeParams, $location, Global, Articles, Stacks, StacksByUser) {
-   $('body').keydown(function(e) {
+angular.module('mean.articles').controller('ArticlesController', ['$scope', '$routeParams', '$location', 'Global', 'Articles', 'Stacks' , 'StacksByUser', function ($scope, $routeParams, $location, Global, Articles, Stacks, StacksByUser) {
+	$('body').keydown(function(e) {
 		$scope.changeIndex(e);
 	});
 
@@ -145,5 +145,4 @@ function ArticlesController($scope, $routeParams, $location, Global, Articles, S
         $scope.$apply();
     };
 
-
-};
+}]);
