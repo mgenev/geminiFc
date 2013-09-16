@@ -1,4 +1,4 @@
-angular.module('mean.articles').controller('ArticlesController', ['$scope', '$routeParams', '$location', 'Global', 'Articles', 'Stacks' , 'StacksByUser', function ($scope, $routeParams, $location, Global, Articles, Stacks, StacksByUser) {
+angular.module('mean.articles').controller('ArticlesController', ['$scope', '$routeParams', '$location', 'Global', 'Articles', 'Stacks' , 'StacksByUser', 'OrderedObjectArray', function ($scope, $routeParams, $location, Global, Articles, Stacks, StacksByUser, OrderedObjectArray) {
 	$('body').keydown(function(e) {
 		$scope.changeIndex(e);
 	});
@@ -74,7 +74,7 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$ro
                 $scope.stack = stack;
             });
         } else {
-            // no check for params, has a stack id been passed? if yes get that stack
+            // no, check for params, has a stack id been passed? if yes get that stack
             if ($routeParams.stackId.trim() !== "") {
                 // yes, get that stack 
                 Stacks.get({
