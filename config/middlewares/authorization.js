@@ -31,3 +31,14 @@ exports.article = {
         next();
     }
 };
+/**
+ * Stack authorizations routing middleware
+ */
+exports.stack = {
+    hasAuthorization: function(req, res, next) {
+        if (req.stack.user.id != req.user.id) {
+            return res.send(401, 'User is not authorized');
+        }
+        next();
+    }
+};

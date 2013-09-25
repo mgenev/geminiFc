@@ -3,7 +3,7 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$ro
         $('body').keydown(function(e) {
             $scope.changeIndex(e);
         });
-
+        $scope.annyangOn = false;
         $scope.global = Global;
 
         //todo store real gauge in db
@@ -96,6 +96,16 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$ro
 
         $scope.flip = function() {
             $('.card').toggleClass('flipped');
+        };
+
+        $scope.annyang = function () {
+            if (!$scope.annyangOn) {
+                annyang.start();
+                $scope.annyangOn = true;
+            } else {
+                annyang.abort();
+                $scope.annyangOn = false;
+            }
         };
 
         $scope.changeIndex = function(e) {

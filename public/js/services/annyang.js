@@ -2,6 +2,7 @@ angular.module('annyang').factory("Annyang", [function() {
     if (annyang) {
     // define the functions our commands will run.
     var hello = function(term) {
+      console.log(term);
       $('.hintPhotos').html("<h1>You said: hello " + term + " </h1>").fadeIn();
 
     };
@@ -52,7 +53,7 @@ angular.module('annyang').factory("Annyang", [function() {
     annyang.setLanguage('en');
 
     // Start listening. You can call this here, or attach this call to an event, button, etc.
-    annyang.start();
+    // annyang.start();
   } else {
     $(document).ready(function() {
       $('#unsupported').fadeIn('fast');
