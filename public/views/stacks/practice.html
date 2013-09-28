@@ -1,6 +1,22 @@
+	<section data-ng-controller="StacksController" data-ng-init="findOne(); findCards();">
+	<h1>Practice Mode</h2>	
+	<span>{{stack.created | date:'medium'}}</span> /
+	<span>{{stack.user.name}}</span>
+	<h2>{{stack.title}} <a data-ng-show="global.user._id == stack.user._id" href="/#!/stacks/{{stack._id}}/edit">edit</a></h2>
+	<div>Stack: {{stack.language1}} - {{stack.language2}}</div>
+
+<!-- 	<h1><a href="/#!/articles/create/{{stack._id}}">Create a flashcard</a></h1>
+ -->
+	<ul class="articles unstyled">
+		<li data-ng-repeat="article in articles">		
+			<h3><a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a></h3>
+		</li>
+	</ul>
+</section>
+
 <section  data-ng-controller="ArticlesController" data-ng-init="findOne();">
 	
-	<div class="container card-wrapper">
+	<div class="card-wrapper">
 		<div><span>Now studying:</span> <h3 class="stack-title">{{stack.title}}</h3><div>
 		<div class="separator"></div><!-- 
 		<span>{{article.created | date:'medium'}}</span> /
@@ -29,7 +45,7 @@
 			<i ng-click="changeIndex('up');" class="icon-thumbs-up icon-4x thumbs-up pull-right"></i>
 		</div>
 		
-		<input ng-toggleClass="annyangOn" ng-click="annyang();" type="submit" class="btn submit" value="Speech Recognition"></input>
+		<input ng-toggleClass="annyangOn" ng-click="annyang();" type="submit" class="button submit" value="Speech Recognition"></input>
 		<div style="display:hidden;" class="hintPhotos">
 			
 		</div>

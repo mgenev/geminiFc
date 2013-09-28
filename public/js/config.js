@@ -9,6 +9,7 @@ window.app.config(['$routeProvider', function($routeProvider) {
 	when('/stacks/create', { templateUrl: 'views/stacks/create.html' }).
 	when('/stacks/:stackId/edit', { templateUrl: 'views/stacks/edit.html' }).
 	when('/stacks/:stackId', { templateUrl: 'views/stacks/view.html' }).
+	when('/stacks/:stackId/practice', { templateUrl: 'views/stacks/practice.html' }).
 	when('/', { templateUrl: 'views/index.html' }).
 	otherwise({redirectTo: '/'});
 }]);
