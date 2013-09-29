@@ -1,38 +1,47 @@
-<section  data-ng-controller="ArticlesController" data-ng-init="findOne();">
-	
-	<div class="container card-wrapper">
-		<div><span>Now studying:</span> <h3 class="stack-title">{{stack.title}}</h3><div>
-		<div class="separator"></div><!-- 
-		<span>{{article.created | date:'medium'}}</span> /
-		<span>{{article.user.name}}</span> --><!-- 
-		<h2>{{article.title}} <a data-ng-show="global.user._id == article.user._id" href="/#!/articles/{{article._id}}/edit">edit</a></h2> -->
-<!-- 		<input ng-keydown="changeIndex($event);"> -->
-		<div><h5>Knowledge progress: </h5>  <progress ng-model="learnedGauge.value" percent="learnedGauge" animate="true" class="progress active animate"></progress> </div>
-		
-		<div class="flip"> 
-        <div class="card"> 
-            <div ng-click="flip();" class="face front"> 
-                {{article.side1}}
-            </div> 
-            <div  ng-click="flip();" class="face back"> 
-                {{article.side2}}
-            </div> 
-        </div> 
- 	   </div> 
+<section data-ng-controller="ArticlesController" data-ng-init="findOne();">
 
-<!-- 
-		<div ng-click="flip();" class="flashcard side1">{{article.side1}}</div>
-		<div ng-click="flip();" class="flashcard side2 hidden">{{article.side2}}</div>
- -->
-		<div class="controls">
-			<i ng-click="changeIndex('down');" class="icon-thumbs-down icon-4x thumbs-down"></i>
-			<i ng-click="changeIndex('up');" class="icon-thumbs-up icon-4x thumbs-up pull-right"></i>
-		</div>
-		
-		<input ng-toggleClass="annyangOn" ng-click="annyang();" type="submit" class="btn submit" value="Speech Recognition"></input>
-		<div style="display:hidden;" class="hintPhotos">
-			
-		</div>
+    <div class="container card-wrapper">
+        <span>studying:</span>
+        <h3 class="stack-title">{{stack.title}}</h3>            
+            <!-- 
+	<span>{{article.created | date:'medium'}}</span> /
+	<span>{{article.user.name}}</span> -->
+            <!-- 
+	<h2>{{article.title}} <a data-ng-show="global.user._id == article.user._id" href="/#!/articles/{{article._id}}/edit">edit</a></h2> -->
+            <!-- 		<input ng-keydown="changeIndex($event);"> -->
+            <div>
+                <span class="progress-label pull-left">progress:</span>
+                <progress ng-model="learnedGauge.value" percent="learnedGauge" animate="true" class="progress active animate "></progress>
+            </div>
+
+            <div class="flip">
+                <div class="card">
+                    <div ng-click="flip();" class="face front">
+                        {{article.side1}}
+                    </div>
+                    <div ng-click="flip();" class="face back">
+                        {{article.side2}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- 
+	<div ng-click="flip();" class="flashcard side1">{{article.side1}}</div>
+	<div ng-click="flip();" class="flashcard side2 hidden">{{article.side2}}</div>
+-->
+        <div class="bottom-controls">
+            <i ng-click="changeIndex('down');" class="icon-thumbs-down icon-4x thumbs-down"></i>
+            <i ng-click="changeIndex('up');" class="icon-thumbs-up icon-4x thumbs-up pull-right"></i>
+        </div>
 
 	</div>
+    <div class="controls-right">
+        <a ng-toggleClass="annyangOn" ng-click="annyang();" class="btn submit">
+        	<i class="icon-microphone icon-2x"></i>
+        	Speech Recognition
+        </a>
+
+   		 <div style="display:hidden;" class="hintPhotos">
+   		 </div>
+    </div>
 </section>

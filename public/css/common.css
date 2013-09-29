@@ -21,7 +21,8 @@
 }
 
 .card-wrapper {
-    width:500px
+    width:500px;
+    float:left;
 }
 .thumbs-down {
     color:#FF0000;
@@ -31,8 +32,22 @@
     color:#59A80F;
     cursor:pointer
 }
-.controls {
+.controls-bottom{
     margin-top:15px
+}
+
+.controls-right {
+    margin-left:15px;
+    float:left;
+}
+.progress {
+    margin-bottom: 0;
+}
+.progress-label {
+    position:relative;
+    margin-top: 0;
+    left:-10px;
+    display:inline;
 }
 .flashcard {
     border:1px solid #000;
