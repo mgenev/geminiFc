@@ -2,24 +2,24 @@
     padding-left:20px;
     margin-left:0
 }
+
+
+.logo-header {
+    margin-left:16px;
+    margin-top:4px;
+    background-image: url('/img/gc-logo-black-bg.png');    
+    width: 33px;
+    height: 34px;
+    display:inline;
+    float:left;
+}
+
+
 .content {
     margin-top:50px;
     width:100%
 }
-footer {
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-    background:#ddd;
-    -webkit-box-shadow:0 8px 6px 6px #000;
-    -moz-box-shadow:0 8px 6px 6px #000;
-    box-shadow:0 8px 6px 6px #000
-}
-footer p {
-    padding:5px 0 12px 10px
-}
+
 .card-wrapper {
     width:500px
 }
