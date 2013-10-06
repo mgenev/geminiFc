@@ -65,17 +65,24 @@ angular.module('mean.stacks').controller('StacksController', ['$scope', '$routeP
 	$scope.findCards = function (query) {
 		ArticlesByStack.query({ stackId: $routeParams.stackId }, function (articles) {
 			$scope.orderedCards = new OrderedObjectArray();
-			console.log($scope.orderedCards);
 			$scope.articles = articles;
 
 			angular.forEach(articles, function(value, key){
-
 			  $scope.orderedCards.put(key,value);
 			});
-
-			console.log( $scope.orderedCards.getList());
+			
 		});
 	};
+
+	$scope.nextCard = function () {
+		var test =  $scope.orderedCards.next();
+		console.log(test);
+	}
+
+	$scope.prevCard = function () {
+		var test =  $scope.orderedCards.prev();
+		console.log(test);
+	}
 
 	$scope.findStacksByUser = function (query) {
 

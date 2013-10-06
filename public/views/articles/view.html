@@ -1,6 +1,7 @@
-<section data-ng-controller="ArticlesController" data-ng-init="findOne();">
+<section data-ng-controller="ArticlesController" data-ng-init="findOne();annyangInit();">
 
-    <div class="container card-wrapper">
+    <div class="container-fluid">
+    	<div class="card-wrapper">
         <span>studying:</span>
         <h3 class="stack-title">{{stack.title}}</h3>            
             <!-- 
@@ -33,10 +34,10 @@
             <i ng-click="changeIndex('down');" class="icon-thumbs-down icon-4x thumbs-down"></i>
             <i ng-click="changeIndex('up');" class="icon-thumbs-up icon-4x thumbs-up pull-right"></i>
         </div>
+		</div>
 
-	</div>
-    <div class="controls-right">
-        <a ng-toggleClass="annyangOn" ng-click="annyang();" class="btn submit">
+		<div class="controls-right">
+        <a ng-toggleClass="annyangOn" ng-click="annyang();" class="btn submit speech-button">
         	<i class="icon-microphone icon-2x"></i>
         	Speech Recognition
         </a>
@@ -44,4 +45,6 @@
    		 <div style="display:hidden;" class="hintPhotos">
    		 </div>
     </div>
+	</div>
+
 </section>

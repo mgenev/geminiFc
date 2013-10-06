@@ -6,7 +6,7 @@
 	<div>Stack: {{stack.language1}} - {{stack.language2}}</div>
 
 <!-- 	<h1><a href="/#!/articles/create/{{stack._id}}">Create a flashcard</a></h1>
- -->
+ --><a class="btn" ng-click="nextCard()">NEXT</a>&nbsp;<a class="btn" ng-click="prevCard()">PREV</a>
 	<ul class="articles unstyled">
 		<li data-ng-repeat="article in articles">		
 			<h3><a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a></h3>

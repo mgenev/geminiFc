@@ -11,7 +11,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['public/js/**', 'app/**/*.js'],
-                tasks: ['jshint'],
+                tasks: [],
                 options: {
                     livereload: true,
                 },
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
+            // all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
         },
         nodemon: {
             dev: {
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
 
     //Load NPM tasks 
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
+    // grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');

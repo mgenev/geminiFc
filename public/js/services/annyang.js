@@ -7,6 +7,14 @@ angular.module('annyang').factory("Annyang", [function() {
 
     };
 
+    var evalAnswer = function(term) {
+      if (term == 'food') {
+        $('.hintPhotos').html("<h1>You correctly answered: " + term + " </h1>").fadeIn();  
+      }
+      
+
+    };
+
     var showFlickr = function(tag) {
       $('#flickrGallery').show();
       $('#flickrLoader p').text('Searching for '+tag).fadeIn('fast');
@@ -40,7 +48,10 @@ angular.module('annyang').factory("Annyang", [function() {
     //   You can pass a function, a function name (as a string), or write your function as part of the commands object.
     var commands = {
       'hello :term' : hello,
-      'show me *search':      showFlickr
+      'answer :term' : evalAnswer,
+      'it is :term' : evalAnswer,
+      'its :term' : evalAnswer,
+      'hint *search':      showFlickr
     };
 
     // OPTIONAL: activate debug mode for detailed logging in the console

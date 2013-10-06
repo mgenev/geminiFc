@@ -1,8 +1,6 @@
 <section data-ng-controller="StacksController" data-ng-init="findStacksByUser()">
 	<ul class="stacks unstyled">
 		<li data-ng-repeat="stack in stacks">
-			<span>{{stack.created | date:'medium'}}</span> /
-			<span>{{stack.user.name}}</span>
 			<h2><a data-ng-href="#!/stacks/{{stack._id}}">{{stack.title}}</a></h2>
 			<a data-ng-href="#!/stacks/{{stack._id}}/practice">Practice</a>
 		</li>

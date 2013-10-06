@@ -66,11 +66,23 @@ angular.module('mean.utils').factory("OrderedObjectArray", [function() {
             next: function() {
 
                 current = list[currentIndex];
-
+                console.log("current: ",current);
                 if(currentIndex + 1 < list.length) {
                     currentIndex++;
                 } else {
                     currentIndex = 0;
+                }
+                console.log("current after NEXT: ",current);
+                return current;
+            },
+            prev: function() {
+
+                current = list[currentIndex];
+
+                if(currentIndex - 1 > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = list.length + 1;
                 }
 
                 return current;
