@@ -3,6 +3,10 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         watch: {
+            compass: {
+                files: ['public/sass/{,*/}*.{scss,sass}'],
+                tasks: ['compass:server', 'autoprefixer']
+            },
             jade: {
                 files: ['app/views/**'],
                 options: {
@@ -27,6 +31,45 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 }
+            }
+        },
+        compass: {
+            options: {
+                sassDir: 'public/sass',
+                cssDir: 'public/css',
+                generatedImagesDir: '.tmp/img/generated',
+                imagesDir: 'public/img',
+                javascriptsDir: 'public/js',
+                // fontsDir: '<%= yeoman.app %>/styles/fonts',
+                importPath: 'public/lib',
+                httpImagesPath: '/img',
+                httpGeneratedImagesPath: '/img/generated',
+                httpFontsPath: '/styles/fonts',
+                relativeAssets: false,
+                assetCacheBuster: false
+            },
+            dist: {
+                options: {
+                    generatedImagesDir: 'dist/img/generated'
+                }
+            },
+            server: {
+                options: {
+                    debugInfo: true
+                }
+            }
+        },
+        autoprefixer: {
+            options: {
+                browsers: ['last 1 version']
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '.tmp/styles/',
+                    src: '{,*/}*.css',
+                    dest: '.tmp/styles/'
+                }]
             }
         },
         jshint: {
@@ -77,6 +120,8 @@ module.exports = function(grunt) {
     //Load NPM tasks 
     grunt.loadNpmTasks('grunt-contrib-watch');
     // grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
