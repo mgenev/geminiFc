@@ -1,54 +1,52 @@
-	<section data-ng-controller="StacksController" data-ng-init="findOne(); findCards();">
-	<h1>Practice Mode</h2>	
-	<span>{{stack.created | date:'medium'}}</span> /
-	<span>{{stack.user.name}}</span>
-	<h2>{{stack.title}} <a data-ng-show="global.user._id == stack.user._id" href="/#!/stacks/{{stack._id}}/edit">edit</a></h2>
-	<div>Stack: {{stack.language1}} - {{stack.language2}}</div>
+<section data-ng-controller="StacksController" data-ng-init="findOne();">
+    <div class="container-fluid">
+    	<div class="practice-stack-headers">
+	        <h2>{{stack.title}}</h2>
+	        <h4>{{stack.language1}} - {{stack.language2}}</h4>
+    	</div>
+    </div>
 
-<!-- 	<h1><a href="/#!/articles/create/{{stack._id}}">Create a flashcard</a></h1>
- -->
-	<ul class="articles unstyled">
-		<li data-ng-repeat="article in articles">		
-			<h3><a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a></h3>
-		</li>
-	</ul>
 </section>
-te s te sst sts t s
-<section  data-ng-controller="ArticlesController" data-ng-init="findOne();">
-	
-	<div class="card-wrapper">
-		<div><span>Now studying:</span> <h3 class="stack-title">{{stack.title}}</h3><div>
-		<div class="separator"></div><!-- 
-		<span>{{article.created | date:'medium'}}</span> /
-		<span>{{article.user.name}}</span> --><!-- 
-		<h2>{{article.title}} <a data-ng-show="global.user._id == article.user._id" href="/#!/articles/{{article._id}}/edit">edit</a></h2> -->
-<!-- 		<input ng-keydown="changeIndex($event);"> -->
-		<div><h5>Knowledge progress: </h5>  <progress ng-model="learnedGauge.value" percent="learnedGauge" animate="true" class="progress active animate"></progress> </div>
-		
-		<div class="flip"> 
-        <div class="card"> 
-            <div ng-click="flip();" class="face front"> 
-                {{article.side1}}
-            </div> 
-            <div  ng-click="flip();" class="face back"> 
-                {{article.side2}}
-            </div> 
-        </div> 
- 	   </div> 
 
-<!-- 
-		<div ng-click="flip();" class="flashcard side1">{{article.side1}}</div>
-		<div ng-click="flip();" class="flashcard side2 hidden">{{article.side2}}</div>
- -->
-		<div class="controls">
-			<i ng-click="changeIndex('down');" class="icon-thumbs-down icon-4x thumbs-down"></i>
-			<i ng-click="changeIndex('up');" class="icon-thumbs-up icon-4x thumbs-up pull-right"></i>
-		</div>
-		
-		<input ng-toggleClass="annyangOn" ng-click="annyang();" type="submit" class="button submit" value="Speech Recognition"></input>
-		<div style="display:hidden;" class="hintPhotos">
-			
-		</div>
 
-	</div>
+<section data-ng-controller="PracticeController" data-ng-init="loadCards();annyangInit();">
+
+    <div class="container-fluid">
+            <div>
+                <progress ng-model="learnedGauge.value" percent="learnedGauge" animate="true" class="progress active animate"></progress>
+            </div>
+
+            <div class="practice-controls-top">
+
+	            <a ng-toggleClass="annyangOn" ng-click="annyang();" class="speech-button">
+	                <i class="icon-microphone icon-4x"></i>
+	            </a>          
+    		</div>
+
+			<div class="practice-controls-mid">
+				<i class="icon-chevron-left icon-4x pull-left" ng-click="nextCard()"></i>
+				<i class="icon-chevron-right icon-4x pull-right" ng-click="prevCard()"></i>
+			</div>
+
+            <div class="card-wrapper clearfix">
+            	
+	            <div class="flip">
+	                <div class="card">
+	                    <div ng-click="flip();" class="face front">
+	                        {{orderedCards.current().value.side1}}
+	                    </div>
+	                    <div ng-click="flip();" class="face back">
+	                        {{orderedCards.current().value.side2}}
+	                    </div>
+	                </div>
+	            </div>       
+
+        	</div>			           	 
+
+            <div class="practice-controls-bottom">
+                <i ng-click="changeIndex('down');" class="icon-thumbs-down icon-4x thumbs-down"></i>
+                <i ng-click="changeIndex('up');" class="icon-thumbs-up icon-4x thumbs-up pull-right"></i>
+            </div>
+
+    </div>
 </section>

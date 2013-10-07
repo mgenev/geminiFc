@@ -1,9 +1,13 @@
 <section data-ng-controller="StacksController" data-ng-init="findStacksByUser()">
-	<ul class="stacks unstyled">
-		<li data-ng-repeat="stack in stacks">
-			<h2><a data-ng-href="#!/stacks/{{stack._id}}">{{stack.title}}</a></h2>
-			<a data-ng-href="#!/stacks/{{stack._id}}/practice">Practice</a>
-		</li>
-	</ul>
-	<h1 data-ng-hide="!stacks || stacks.length">No stacks yet. <br> Why don't you <a href="/#!/stacks/create">Create One</a>?</h1>
+	<div class="container">
+		<ul class="stacks unstyled">
+			<li data-ng-repeat="stack in stacks">
+				<h2 class="inline"><a data-ng-href="#!/stacks/{{stack._id}}">{{stack.title}}</a></h2>
+					<span>{{stack.created | date:'mediumDate'}}</span>
+
+					<a data-ng-href="#!/stacks/{{stack._id}}/practice">Practice</a>
+			</li>
+		</ul>
+		<h1 data-ng-hide="!stacks || stacks.length">No stacks yet. <br> Why don't you <a href="/#!/stacks/create">Create One</a>?</h1>
+	</div>
 </section>

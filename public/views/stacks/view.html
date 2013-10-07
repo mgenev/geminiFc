@@ -1,15 +1,29 @@
 	<section data-ng-controller="StacksController" data-ng-init="findOne(); findCards();">
 		
-	<span>{{stack.created | date:'medium'}}</span> /
-	<span>{{stack.user.name}}</span>
-	<h2>{{stack.title}} <a data-ng-show="global.user._id == stack.user._id" href="/#!/stacks/{{stack._id}}/edit">edit</a></h2>
-	<div>Stack: {{stack.language1}} - {{stack.language2}}</div>
+    <div class="pull-left">
+        <h2>{{stack.title}} </h2>
+        <h4>{{stack.language1}} - {{stack.language2}}</h4>
+    </div>
 
-<!-- 	<h1><a href="/#!/articles/create/{{stack._id}}">Create a flashcard</a></h1>
- --><a class="btn" ng-click="nextCard()">NEXT</a>&nbsp;<a class="btn" ng-click="prevCard()">PREV</a>
-	<ul class="articles unstyled">
+    <div class="pull-left top-controls">
+        
+        <a   data-ng-show="global.user._id == stack.user._id" href="/#!/stacks/{{stack._id}}/practice">
+            <i class="icon-youtube-play icon-2x"></i>
+             practice
+        </a>
+
+        
+    	<a   href="/#!/articles/create/{{stack._id}}"><i class="icon-plus icon-2x"></i> create flashcard</a>
+
+        <a   data-ng-show="global.user._id == stack.user._id" href="/#!/stacks/{{stack._id}}/edit">
+            <i class="icon-edit icon-2x"></i>
+            edit stack
+        </a>
+    </div>
+
+	<ul style="clear:both" class="articles unstyled">
 		<li data-ng-repeat="article in articles">		
-			<h3><a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a></h3>
+			<h4><a data-ng-href="#!/articles/{{article._id}}/edit">{{article.title}}</a></h4>
 		</li>
 	</ul>
 </section>

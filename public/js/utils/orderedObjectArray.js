@@ -64,27 +64,27 @@ angular.module('mean.utils').factory("OrderedObjectArray", [function() {
                 currentIndex = 0;
             },
             next: function() {
-
-                current = list[currentIndex];
-                console.log("current: ",current);
+                
                 if(currentIndex + 1 < list.length) {
                     currentIndex++;
                 } else {
                     currentIndex = 0;
                 }
-                console.log("current after NEXT: ",current);
+
+                current = list[currentIndex];
+                console.log("current after NEXT: ", current);
                 return current;
             },
             prev: function() {
 
-                current = list[currentIndex];
-
-                if(currentIndex - 1 > 0) {
+                if(currentIndex - 1 > -1) {
                     currentIndex--;
                 } else {
-                    currentIndex = list.length + 1;
+                    currentIndex = list.length - 1;
                 }
 
+                current = list[currentIndex];
+                console.log("current after PREV: ", current);
                 return current;
             },
             current: function() {

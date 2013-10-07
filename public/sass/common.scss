@@ -15,7 +15,24 @@
     float:left;
 }
 
-/* layout */
+.practice-stack-headers {
+    width:100%;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* layout and util */
+
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
 
 .content {
     margin-top:50px;
@@ -26,10 +43,25 @@
     border: 1px solid black;
 }
 
-.card-wrapper {
-    width:500px;
-    float:left;
+
+
+footer div {
+    margin-top: 50px;
 }
+
+
+
+.hidden {
+    display:none
+}
+
+.separator {
+    border-top:1px solid rgba(0, 0, 0, 0.2);
+    border-bottom:1px solid rgba(255, 255, 255, 0.2);
+    margin:1.5em 0;
+    width:350px
+}
+
 
 /* labels */
 
@@ -47,12 +79,30 @@
 /* controls and components */
 
 .speech-button {
-    margin-top: 21px;
+    cursor: pointer;
 
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.top-controls {
+    margin-top: 21px;
+    margin-left:160px;
+
+    a {
+        margin-left:20px;
+    }
 }
 
 .annyangOn {
     background-color: red;
+}
+
+.next-button, .prev-button {
+    position: relative;
+    bottom:100px;
+    cursor: pointer;
 }
 
 .thumbs-down {
@@ -65,18 +115,34 @@
     cursor:pointer
 }
 
-.controls-bottom{
-    margin-top:15px
+.practice-controls-top {    
+    text-align: center;
+    margin-top: 50px;
 }
 
-.controls-right {
-    margin-left:55px;
-    float:left;
+.practice-controls-mid{
+    
+    position:relative;
+    top:100px;
+
+        i {
+            cursor: pointer;
+        }
+}
+
+.practice-controls-bottom{    
+    width: 80%;
+    margin: 0 auto;
+    margin-top:15px;
 }
 
 .progress {
     margin-bottom: 0;
+    opacity: 0.6;
+    width: 80%;
+    margin:0 auto;
 }
+
 
 /* flashcard */
 
@@ -91,16 +157,16 @@
     vertical-align:middle;
     font-size:3em
 }
-.hidden {
-    display:none
-}
+
+
 
 .flip {
     -webkit-perspective:800;
     width:400px;
     height:200px;
     position:relative;
-    margin:50px auto
+    margin:0 auto;
+    margin-top:20px;    
 }
 
 .flip .card.flipped {
@@ -163,10 +229,4 @@
     border-radius:10px
 }
 
-.separator {
-    border-top:1px solid rgba(0, 0, 0, 0.2);
-    border-bottom:1px solid rgba(255, 255, 255, 0.2);
-    margin:1.5em 0;
-    width:350px
-}
 

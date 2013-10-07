@@ -49,7 +49,6 @@ angular.module('mean.stacks').controller('StacksController', ['$scope', '$routeP
  
 	//TODO this flip to flip whole stacks witha  for each
 	$scope.flip = function () {
-		console.log($scope.stack);
 		var side1 = $('.side1'),
 			side2 = $('.side2');
 
@@ -64,25 +63,10 @@ angular.module('mean.stacks').controller('StacksController', ['$scope', '$routeP
 
 	$scope.findCards = function (query) {
 		ArticlesByStack.query({ stackId: $routeParams.stackId }, function (articles) {
-			$scope.orderedCards = new OrderedObjectArray();
-			$scope.articles = articles;
-
-			angular.forEach(articles, function(value, key){
-			  $scope.orderedCards.put(key,value);
-			});
-			
+			$scope.articles = articles;			
 		});
 	};
 
-	$scope.nextCard = function () {
-		var test =  $scope.orderedCards.next();
-		console.log(test);
-	}
-
-	$scope.prevCard = function () {
-		var test =  $scope.orderedCards.prev();
-		console.log(test);
-	}
 
 	$scope.findStacksByUser = function (query) {
 
