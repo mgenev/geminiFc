@@ -1,9 +1,23 @@
 angular.module('mean.articles').controller('PracticeController', ['$scope', '$routeParams', '$location', 'Global', 'ArticlesByStack', 'Stacks', 'StacksByUser', 'OrderedObjectArray',
     function($scope, $routeParams, $location, Global, ArticlesByStack, Stacks, StacksByUser, OrderedObjectArray) {
-        $('body').keydown(function(e) {
-            $scope.changeIndex(e);
+        $('body').keypress(function(e) {
+            $scope.keyHandler(e);
         });
 
+        KeyboardJS.on('right', function() {
+           $scope.$apply(function () {
+                $scope.nextCard();
+           })            
+        });
+
+        KeyboardJS.on('left', function() {
+           $scope.$apply(function () {
+                $scope.prevCard();
+           })            
+        });
+
+
+        $scope.word = '';
         $scope.annyangOn = false;
         $scope.global = Global;
 
@@ -13,7 +27,9 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
 
         $scope.orderedCards = new OrderedObjectArray();
 
-        $scope.loadCards = function (query) {
+
+
+        $scope.loadCards = function () {
             ArticlesByStack.query({ stackId: $routeParams.stackId }, function (articles) {
                 $scope.articles = articles;    
 
@@ -22,17 +38,21 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
                   $scope.orderedCards.put(key,value);
                 });     
 
+                $scope.annyangInit();
+
                 console.log($scope.orderedCards.current());
             });
         };
 
 
         $scope.nextCard = function () {
-            $scope.orderedCards.next();            
+            $scope.orderedCards.next();  
+            $scope.annyangInit();          
         }
 
         $scope.prevCard = function () {
             $scope.orderedCards.prev();
+            $scope.annyangInit();
         }
 
 
@@ -41,12 +61,14 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
         };
 
         $scope.annyangInit = function () {
-            var article = $scope.article;
+            
             if (annyang) {
                 // define the functions our commands will run
+                var article = $scope.orderedCards.current();
+                console.log($scope.orderedCards.current());
 
                 var evalAnswer = function(term) {
-                    if (term == $scope.article.side2) {
+                    if (term == article.side2) {
                         $('.hintPhotos').html("<h3>You correctly answered: " + term + " </h3>").fadeIn();
                     } else {
                         $('.hintPhotos').html("<h3>You wrongly answered: " + term + " </h3>").fadeIn();
@@ -121,17 +143,30 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
             }
         };
 
-        $scope.changeIndex = function(e) {
-            console.log(e.which);
-            var value = $scope.learnedGauge.value;
-            var type;
+        $scope.guessWord = function(e) {
+            $scope.word += String.fromCharCode(e.keyCode);
+            if ($scope.word == $scope.orderedCards.current().value.side2) {
+                console.log("youve guessed it");
+            }
+        }
 
+        $scope.keyHandler = function(e) {
+
+            var value = $scope.learnedGauge.value;
+
+            var type;
+            var regex = /[a-zA-Z]/;
+
+            if (e.which !== 0 && e.charCode !== 0) {
+                if (regex.test(String.fromCharCode(e.keyCode|e.charCode))) $scope.guessWord(e);
+            }
+            
+            console.log(e.which);
             switch (e.which) {
                 // "up arrow"
                 case 38:
                     e = "up";
                     break;
-
                     // "down arrow"
                 case 40:
                     e = "down";
@@ -170,7 +205,9 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
                 type: type
             };
 
-            $scope.$apply();
+            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                $scope.$apply();
+            }
         };
 
     }

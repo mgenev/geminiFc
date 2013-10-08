@@ -9,8 +9,8 @@
 </section>
 
 
-<section data-ng-controller="PracticeController" data-ng-init="loadCards();annyangInit();">
-
+<section  data-ng-controller="PracticeController" data-ng-init="loadCards();">
+    
     <div class="container-fluid">
             <div>
                 <progress ng-model="learnedGauge.value" percent="learnedGauge" animate="true" class="progress active animate"></progress>
@@ -24,8 +24,8 @@
     		</div>
 
 			<div class="practice-controls-mid">
-				<i class="icon-chevron-left icon-4x pull-left" ng-click="nextCard()"></i>
-				<i class="icon-chevron-right icon-4x pull-right" ng-click="prevCard()"></i>
+				<i class="icon-chevron-left icon-4x pull-left" ng-click="prevCard()"></i>
+				<i class="icon-chevron-right icon-4x pull-right" ng-click="nextCard()"></i>
 			</div>
 
             <div class="card-wrapper clearfix">
@@ -47,6 +47,8 @@
                 <i ng-click="changeIndex('down');" class="icon-thumbs-down icon-4x thumbs-down"></i>
                 <i ng-click="changeIndex('up');" class="icon-thumbs-up icon-4x thumbs-up pull-right"></i>
             </div>
+            
+            {{word}}
 
     </div>
 </section>

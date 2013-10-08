@@ -6,7 +6,7 @@ app.directive('ngKeydown', function () {
                     scope.$eval(attrs.ngKeydown);
                 });
 
-            // event.preventDefault();
+             event.preventDefault();
         });
     };
 });

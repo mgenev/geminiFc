@@ -1,4 +1,4 @@
-angular.module('mean.stacks').controller('StacksController', ['$scope', '$routeParams', '$location', 'Global', 'Stacks', 'ArticlesByStack', 'StacksByUser', 'OrderedObjectArray', function ($scope, $routeParams, $location, Global, Stacks, ArticlesByStack, StacksByUser, OrderedObjectArray) {
+angular.module('mean.stacks').controller('StacksController', ['$scope', '$routeParams', '$location', 'Global', 'Stacks', 'ArticlesByStack', 'StacksByUser',  function ($scope, $routeParams, $location, Global, Stacks, ArticlesByStack, StacksByUser) {
 	$scope.global = Global;
 
 	$scope.create = function () {
