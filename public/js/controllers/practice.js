@@ -75,35 +75,6 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
                     }
                 };
 
-                var showFlickr = function(tag) {
-                    $('#flickrGallery').show();
-                    $('#flickrLoader p').text('Searching for ' + tag).fadeIn('fast');
-                    var url = '//api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a828a6571bb4f0ff8890f7a386d61975&sort=interestingness-desc&per_page=9&format=json&callback=jsonFlickrApi&tags=' + tag;
-                    $.ajax({
-                        type: 'GET',
-                        url: url,
-                        async: false,
-                        jsonpCallback: 'jsonFlickrApi',
-                        contentType: "application/json",
-                        dataType: 'jsonp'
-                    });
-                    scrollTo("#section_image_search");
-                };
-
-                var jsonFlickrApi = function(results) {
-                    $('#flickrLoader p').fadeOut('slow');
-                    var photos = results.photos.photo;
-                    $.each(photos, function(index, photo) {
-                        $(document.createElement("img"))
-                            .attr({
-                                src: '//farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '_s.jpg'
-                            })
-                            .addClass("flickrGallery")
-                            .appendTo(flickrGallery);
-                    });
-                };
-
-
                 // define our commands.
                 // * The key is what you want your users to say say.
                 // * The value is the action to do.
@@ -162,6 +133,7 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
             }
             
             console.log(e.which);
+            
             switch (e.which) {
                 // "up arrow"
                 case 38:
