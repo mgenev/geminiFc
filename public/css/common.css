@@ -17,6 +17,14 @@
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000318}}
+.word-slot {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  display: inline;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000325}}
 .practice-stack-headers {
   width: 100%;
   text-align: center;
@@ -26,40 +34,40 @@
 }
 
 /* layout and util */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000336}}
 .clearfix:before,
 .clearfix:after {
   content: "";
   display: table;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000333}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000340}}
 .clearfix:after {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000344}}
 .content {
   margin-top: 50px;
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000349}}
 .another {
   border: 1px solid black;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000355}}
 footer div {
   margin-top: 50px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000361}}
 .hidden {
   display: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000365}}
 .separator {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -68,12 +76,12 @@ footer div {
 }
 
 /* labels */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000368}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000375}}
 .stack-title {
   display: inline;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000379}}
 .progress-label {
   position: relative;
   margin-top: 0;
@@ -82,73 +90,73 @@ footer div {
 }
 
 /* controls and components */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000381}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000388}}
 .speech-button {
   cursor: pointer;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000384}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000391}}
 .speech-button:hover {
   text-decoration: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000389}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000396}}
 .top-controls {
   margin-top: 21px;
   margin-left: 160px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000393}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003100}}
 .top-controls a {
   margin-left: 20px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\0000398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003105}}
 .annyangOn {
   background-color: red;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003102}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003109}}
 .next-button, .prev-button {
   position: relative;
   bottom: 100px;
   cursor: pointer;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003108}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003115}}
 .thumbs-down {
   color: #FF0000;
   cursor: pointer;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003113}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003120}}
 .thumbs-up {
   color: #59A80F;
   cursor: pointer;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003125}}
 .practice-controls-top {
   text-align: center;
   margin-top: 50px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003123}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003130}}
 .practice-controls-mid {
   position: relative;
   top: 100px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003135}}
 .practice-controls-mid i {
   cursor: pointer;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003133}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003140}}
 .practice-controls-bottom {
   width: 80%;
   margin: 0 auto;
   margin-top: 15px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003139}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003146}}
 .progress {
   margin-bottom: 0;
   opacity: 0.6;
@@ -157,7 +165,7 @@ footer div {
 }
 
 /* flashcard */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003149}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003156}}
 .flashcard {
   border: 1px solid black;
   width: 500px;
@@ -170,7 +178,7 @@ footer div {
   font-size: 3em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003163}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003170}}
 .flip {
   -webkit-perspective: 800;
   width: 400px;
@@ -180,12 +188,12 @@ footer div {
   margin-top: 20px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003172}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003179}}
 .flip .card.flipped {
   -webkit-transform: rotatex(-180deg);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003176}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003183}}
 .flip .card {
   width: 100%;
   height: 100%;
@@ -193,7 +201,7 @@ footer div {
   -webkit-transition: 0.5s;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003183}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003190}}
 .flip .card .face {
   width: 100%;
   height: 100%;
@@ -206,7 +214,7 @@ footer div {
   line-height: 200px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003195}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003202}}
 .flip .card .front {
   position: absolute;
   z-index: 1;
@@ -226,7 +234,7 @@ footer div {
   border-radius: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003214}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mgenev\/sites\/geminiFc\/public\/sass\/common\.scss}line{font-family:\00003221}}
 .flip .card .back {
   -webkit-transform: rotatex(-180deg);
   -webkit-box-shadow: rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px inset;
