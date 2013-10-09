@@ -1,4 +1,4 @@
-<section data-ng-controller="StacksController" data-ng-init="findOne();">
+<section   data-ng-controller="StacksController" data-ng-init="findOne();">
     <div class="container-fluid">
     	<div class="practice-stack-headers">
 	        <h2>{{stack.title}}</h2>
@@ -9,7 +9,7 @@
 </section>
 
 
-<section  data-ng-controller="PracticeController" data-ng-init="loadCards();">
+<section data-ng-controller="PracticeController" data-ng-init="loadCards();">
     
     <div class="container-fluid">
             <div>
@@ -44,10 +44,10 @@
         	</div>			           	 
 
             <div class="practice-controls-bottom">
-                <i ng-click="changeIndex('down');" class="icon-thumbs-down icon-4x thumbs-down"></i>
-                <i ng-click="changeIndex('up');" class="icon-thumbs-up icon-4x thumbs-up pull-right"></i>
+                <i ng-click="keyHandler('down');" class="icon-thumbs-down icon-4x thumbs-down"></i>
+                <i ng-click="keyHandler('up');" class="icon-thumbs-up icon-4x thumbs-up pull-right"></i>
             </div>
-            
+
             {{word}}
 
     </div>

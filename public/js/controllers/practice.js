@@ -1,42 +1,46 @@
-angular.module('mean.articles').controller('PracticeController', ['$scope', '$routeParams', '$location', 'Global', 'ArticlesByStack', 'Stacks', 'StacksByUser', 'OrderedObjectArray',
-    function($scope, $routeParams, $location, Global, ArticlesByStack, Stacks, StacksByUser, OrderedObjectArray) {
-        $('body').keypress(function(e) {
-            $scope.keyHandler(e);
-        });
-
-        KeyboardJS.on('right', function() {
-           $scope.$apply(function () {
-                $scope.nextCard();
-           })            
-        });
-
-        KeyboardJS.on('left', function() {
-           $scope.$apply(function () {
-                $scope.prevCard();
-           })            
-        });
-
+angular.module('mean.articles').controller('PracticeController', ['$rootScope', '$scope', '$routeParams', '$location', 'Global', 'ArticlesByStack', 'Stacks', 'StacksByUser', 'OrderedObjectArray',
+    function($rootScope, $scope, $routeParams, $location, Global, ArticlesByStack, Stacks, StacksByUser, OrderedObjectArray) {
+        $scope.global = Global;
+        $scope.orderedCards = new OrderedObjectArray();
 
         $scope.word = '';
         $scope.annyangOn = false;
-        $scope.global = Global;
-
+        
         //todo store real gauge in db
         $scope.learnedGauge = {};
         $scope.learnedGauge.value = 50;
 
-        $scope.orderedCards = new OrderedObjectArray();
+
+        $scope.$on("$destroy", function() {
+            $('body').unbind();
+        });
+
+        $('body').keydown(function(e) {
+            $scope.keyHandler(e);
+        });
+
+        // KeyboardJS.on('right', function() {
+        //    $scope.$apply(function () {
+        //         $scope.nextCard();
+        //    })            
+        // });
+
+        // KeyboardJS.on('left', function() {
+        //    $scope.$apply(function () {
+        //         $scope.prevCard();
+        //    })            
+        // });
+
+        $scope.loadCards = function() {
+            ArticlesByStack.query({
+                stackId: $routeParams.stackId
+            }, function(articles) {
+                $scope.articles = articles;
 
 
-
-        $scope.loadCards = function () {
-            ArticlesByStack.query({ stackId: $routeParams.stackId }, function (articles) {
-                $scope.articles = articles;    
-
-            
-                angular.forEach($scope.articles, function(value, key){
-                  $scope.orderedCards.put(key,value);
-                });     
+                angular.forEach($scope.articles, function(value, key) {
+                    $scope.orderedCards.put(key, value);
+                });
 
                 $scope.annyangInit();
 
@@ -45,12 +49,13 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
         };
 
 
-        $scope.nextCard = function () {
-            $scope.orderedCards.next();  
-            $scope.annyangInit();          
+        $scope.nextCard = function() {
+
+            $scope.orderedCards.next();
+            $scope.annyangInit();
         }
 
-        $scope.prevCard = function () {
+        $scope.prevCard = function() {
             $scope.orderedCards.prev();
             $scope.annyangInit();
         }
@@ -60,8 +65,8 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
             $('.card').toggleClass('flipped');
         };
 
-        $scope.annyangInit = function () {
-            
+        $scope.annyangInit = function() {
+
             if (annyang) {
                 // define the functions our commands will run
                 var article = $scope.orderedCards.current();
@@ -74,6 +79,35 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
                         $('.hintPhotos').html("<h3>You wrongly answered: " + term + " </h3>").fadeIn();
                     }
                 };
+
+                var showFlickr = function(tag) {
+                    $('#flickrGallery').show();
+                    $('#flickrLoader p').text('Searching for ' + tag).fadeIn('fast');
+                    var url = '//api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a828a6571bb4f0ff8890f7a386d61975&sort=interestingness-desc&per_page=9&format=json&callback=jsonFlickrApi&tags=' + tag;
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        async: false,
+                        jsonpCallback: 'jsonFlickrApi',
+                        contentType: "application/json",
+                        dataType: 'jsonp'
+                    });
+                    scrollTo("#section_image_search");
+                };
+
+                var jsonFlickrApi = function(results) {
+                    $('#flickrLoader p').fadeOut('slow');
+                    var photos = results.photos.photo;
+                    $.each(photos, function(index, photo) {
+                        $(document.createElement("img"))
+                            .attr({
+                                src: '//farm' + photo.farm + '.staticflickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '_s.jpg'
+                            })
+                            .addClass("flickrGallery")
+                            .appendTo(flickrGallery);
+                    });
+                };
+
 
                 // define our commands.
                 // * The key is what you want your users to say say.
@@ -119,45 +153,11 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
             if ($scope.word == $scope.orderedCards.current().value.side2) {
                 console.log("youve guessed it");
             }
-        }
+        };
 
-        $scope.keyHandler = function(e) {
-
+        $scope.moveProgress = function(e) {
             var value = $scope.learnedGauge.value;
-
             var type;
-            var regex = /[a-zA-Z]/;
-
-            if (e.which !== 0 && e.charCode !== 0) {
-                if (regex.test(String.fromCharCode(e.keyCode|e.charCode))) $scope.guessWord(e);
-            }
-            
-            console.log(e.which);
-            
-            switch (e.which) {
-                // "up arrow"
-                case 38:
-                    e = "up";
-                    break;
-                    // "down arrow"
-                case 40:
-                    e = "down";
-                    break;
-                    // "left arrow"
-                case 37:
-                    // TODO previousCard();
-                    e = "next";
-                    break;
-                    // "right arrow"
-                case 39:
-                    // TODO nextCard();
-                    e = "prev";
-                    break;
-                case 32:
-                    // TODO nextCard();
-                    $scope.flip();
-                    break;
-            }
 
             if (e == "up") value += 10;
             if (e == "down") value -= 10;
@@ -180,6 +180,47 @@ angular.module('mean.articles').controller('PracticeController', ['$scope', '$ro
             if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
                 $scope.$apply();
             }
+        };
+
+        $scope.keyHandler = function(e) {
+            // check the string from char code against a reg ex for letters, if so, send them to guess word
+            var regex = /[a-zA-Z]/;
+
+            if (e.which !== 0 && e.charCode !== 0) {
+                if (regex.test(String.fromCharCode(e.keyCode | e.charCode))) $scope.guessWord(e);
+            }
+
+            // check for arrows, if up or down, move index, if left or right, move next, prev
+
+            switch (e.which) {
+                // "up arrow"
+                case 38:
+                    e = "up";
+                    break;
+                    // "down arrow"
+                case 40:
+                    e = "down";
+                    break;
+                    // "left arrow"
+                case 37:
+                    // TODO previousCard();
+                    $scope.$apply(function() {
+                        $scope.prevCard();
+                    })
+                    break;
+                    // "right arrow - prev"
+                case 39:
+                    // "left arrow - next"
+                    $scope.$apply(function() {
+                        $scope.nextCard();
+                    })
+                    break;
+                case 32:
+                    // space flips
+                    $scope.flip();
+                    break;
+            }
+
         };
 
     }

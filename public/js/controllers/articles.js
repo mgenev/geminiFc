@@ -1,15 +1,8 @@
 angular.module('mean.articles').controller('ArticlesController', ['$scope', '$routeParams', '$location', 'Global', 'Articles', 'Stacks', 'StacksByUser',
     function($scope, $routeParams, $location, Global, Articles, Stacks, StacksByUser) {
-       
-        $('body').keydown(function(e) {
-            $scope.changeIndex(e);
-        });
-        $scope.annyangOn = false;
+
         $scope.global = Global;
 
-        //todo store real gauge in db
-        $scope.learnedGauge = {};
-        $scope.learnedGauge.value = 50;
 
         $scope.create = function() {
             var article = new Articles({
@@ -94,10 +87,5 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$ro
                 }
             }
         };
-
-        $scope.flip = function() {
-            $('.card').toggleClass('flipped');
-        };
-
     }
 ]);
