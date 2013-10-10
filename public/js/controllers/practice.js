@@ -5,6 +5,7 @@ angular.module('mean.articles').controller('PracticeController', ['$rootScope', 
 
         $scope.word = '';
         $scope.annyangOn = false;
+        $scope.feedback = '';
         
         //todo store real gauge in db
         $scope.learnedGauge = {};
@@ -50,7 +51,22 @@ angular.module('mean.articles').controller('PracticeController', ['$rootScope', 
 
         $scope.nextCard = function() {
 
-            $scope.orderedCards.next();
+            $('.flip').animate({
+                'right':'-200px',
+                'opacity': '0'
+              }, {
+                duration: 200,
+                specialEasing: {
+                  width: "linear",
+                  height: "easeOutBounce"
+                }, 
+                complete: function() {
+                    $scope.$apply(function () {$scope.orderedCards.next()});
+                    
+                    $('.flip').css({"right": "0px","left": "-200px"}).animate({'left':'0px', 'opacity': '1'}, 200);
+                }
+              });
+
             $scope.annyangInit();
         }
 
@@ -71,7 +87,7 @@ angular.module('mean.articles').controller('PracticeController', ['$rootScope', 
 
             if ($scope.word == $scope.orderedCards.current().value.side2.toUpperCase()) {                
                 // UI response, then next
-                console.log("youve guessed it");
+                $scope.feedback = "youve guessed it";
             }
         };
 
@@ -120,12 +136,12 @@ angular.module('mean.articles').controller('PracticeController', ['$rootScope', 
                         break;
                         // "left arrow"
                     case 37:
-                        // TODO previousCard();
+                        // TODO previousCard();                        
                             $scope.prevCard();
                         break;
                         // "right arrow - prev"
                     case 39:
-                        // "left arrow - next"
+                        // "left arrow - next
                             $scope.nextCard();
                         break;
                     case 32:
@@ -137,17 +153,20 @@ angular.module('mean.articles').controller('PracticeController', ['$rootScope', 
         };
 
         $scope.annyangInit = function() {
-
+            var article = ""
             if (annyang) {
                 // define the functions our commands will run
-                var article = $scope.orderedCards.current();
-                console.log($scope.orderedCards.current());
+                article = $scope.orderedCards.current().value;
+                console.log(article.side2);
 
                 var evalAnswer = function(term) {
+                    console.log(term == article.side2, term, article.side2);
                     if (term == article.side2) {
-                        $('.hintPhotos').html("<h3>You correctly answered: " + term + " </h3>").fadeIn();
+                        $scope.feedback = "You correctly answered: " + term ;
+                        // .fadeIn();
                     } else {
-                        $('.hintPhotos').html("<h3>You wrongly answered: " + term + " </h3>").fadeIn();
+                        $scope.feedback = "You wrongly answered: " + term;
+                        // .fadeIn();
                     }
                 };
              

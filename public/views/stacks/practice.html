@@ -45,14 +45,17 @@
             <div class="practice-controls-bottom">
                 <i ng-click="moveProgress('down');" class="icon-thumbs-down icon-4x thumbs-down"></i>                
 
-                <div class="word-slot">{{word}}</div>
+                
 
                 <i ng-click="moveProgress('up');" class="icon-thumbs-up icon-4x thumbs-up pull-right"></i>
+            </div>   
 
-
+            <div class="word">
+            	<h1 class="word-slot">{{word}}</h1>
             </div>
-
-           
-
+            
+            <div class="feedback-bottom">
+            {{feedback}}	
+            </div>   
     </div>
 </section>
