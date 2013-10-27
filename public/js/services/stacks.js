@@ -4,5 +4,5 @@ angular.module('mean.stacks').factory("Stacks", ['$resource', function($resource
 }]);
 
 angular.module('mean.stacks').factory("StacksByUser", ['$resource', function($resource) {
-	return $resource('stacksbyuser/:userId', {userId:'@_id'}, {update: {method: 'PUT'}});
+	return $resource('stacks/user/:userId', {userId:'@_id'}, {update: {method: 'PUT'}});
 }]);

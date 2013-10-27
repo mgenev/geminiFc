@@ -68,7 +68,7 @@ module.exports = function(app, passport, auth) {
     app.put('/stacks/:stackId', auth.requiresLogin, auth.stack.hasAuthorization,  stacks.update)
     app.del('/stacks/:stackId', auth.requiresLogin, auth.stack.hasAuthorization,  stacks.destroy)
 
-    app.get('/stacksbyuser/:userId', stacks.allByUser)
+    app.get('/stacks/user/:userId', stacks.allByUser)
 
     app.param('stackId', stacks.stack)
 
@@ -79,7 +79,7 @@ module.exports = function(app, passport, auth) {
     app.put('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.update)
     app.del('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.destroy)
 
-    app.get('/articlesbystack/:stackId', articles.allByStack)
+    app.get('/articles/stack/:stackId', articles.allByStack)
 
     app.param('articleId', articles.article)
 

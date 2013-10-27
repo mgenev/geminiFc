@@ -10,7 +10,7 @@ angular.module('mean.articles').factory("Articles", ['$resource', function($reso
 }]);
 
 angular.module('mean.articles').factory("ArticlesByStack", ['$resource', function($resource) {
-	return $resource('articlesbystack/:stackId', {
+	return $resource('articles/stack/:stackId', {
 		stackId:'@_id'
 	}, {
 		update: {
