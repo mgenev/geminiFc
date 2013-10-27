@@ -69,6 +69,7 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$ro
                     $scope.stack = stack;
                 });
             } else {
+                // comes from view stack
                 // no, check for params, has a stack id been passed? if yes get that stack
                 if ($routeParams.stackId.trim() !== "") {
                     // yes, get that stack 
@@ -78,7 +79,8 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$ro
                         $scope.stack = stack;
                     });
                 } else {
-                    // no, get possible stacks
+                    //comes from top nav or other quicklinks in the future
+                    // no, get possible stacks by user
                     StacksByUser.query({
                         userId: $scope.global.user._id
                     }, function(stacks) {
